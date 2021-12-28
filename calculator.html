@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var answer;
+		$(document).ready(function(){
+			$(".add").click(function(){
+				var count = $('.tbl tr').length + 1;
+				$('.tbl').append('<tr><td>'+count+'</td><td><input type="number" name="number" class="number"></td></tr>');
+			})
+		});
+
+		$(document).ready(function(){
+			$('.tbl1').hide();
+			$(".operator").change(function(){
+				
+				var value = $(this).val();
+				switch(value) {
+					case "add":
+						$('.tbl').show();
+						$('.tbl1').hide();
+						alert("add");
+						$('.tbl').on('input','.number',function(){
+							var sum = 0;
+							$(".tbl .number").each(function(){
+								var get_val = $(this).val();
+									sum += get_val;
+							});
+							$('.total').html(sum);
+						})
+					break;
+
+					case "subtract":
+						$('.tbl').show();
+						$('.tbl1').hide();
+						var res = 0;
+						$(".tbl .number").each(function(index){
+							if(index == 0){
+								res = $(this).val();
+							}else{
+								res -= $(this).val();
+							}
+						});
+						$('.total').html(res);
+					break;
+
+					case "multiply":
+						$('.tbl').show();
+						$('.tbl1').hide();
+						var res = 0;
+						$(".tbl .number").each(function(index){
+							if(index == 0){
+								res = $(this).val();
+							}else{
+								res *= $(this).val();
+							}
+						});
+						$('.total').html(res);
+					break;
+
+					case "divide":
+						$('.tbl').hide();
+						$('.tbl1').show();
+						
+						$(".tbl1 .number1").change(function(){
+							var first = $(".d1").val();
+							var second = $(".d2").val();
+
+							if(second == ""){
+								$(".e1").html("enter second value");
+							}
+							if(first!== "" && second!==""){
+								$(".e1").html("");
+								  answer = first / second;
+									$('.total').html(answer);
+							}
+						});
+					break;
+					default:
+						alert("something went wrong");
+					break;
+				}
+			})
+		});
+	</script>
+</head>
+<body>
+	<form action="">
+	 Choose Operation:
+	  <select name="operator" class="operator">
+	    <option value="any" class="any">Choose one</option>
+	    <option value="add" class="add">Add</option>
+	    <option value="subtract" class="subtract">Subtract</option>
+	    <option value="multiply" class="multiply">Multiply</option>
+	    <option value="divide" class="divide">Divide</option>
+	  </select>
+	  <br><br>
+	  <input type="button" value="Add Number" class="add">
+	</form>
+
+	<table class="tbl">
+	</table>
+
+	<table class="tbl1">
+		<tr>
+			<td><input type="number" name="d1" class="d1 number1"></td><br>
+			<td><input type="number" name="d2" class="d2 number1"></td>
+			<td class="e1"></td>
+		</tr>
+	</table>
+	Answer is : <span class="total">0</span>
+</body>
+</html>

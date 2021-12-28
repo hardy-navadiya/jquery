@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jquery form</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="form_jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="form_jquery.css">
+</head>
+<body>
+	<h1>Employee Details</h1>
+	<form id="emp_form"  method="post" enctype="multipart/form-data" autocomplete="off"> 
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td>
+					<input type="text" name="name" class="name">
+				</td>
+				<td>
+					<span class="name_msg"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Age:</td>
+				<td>
+					<input type="text" name="age" class="age">
+				</td>
+				<td>
+					<span class="age_msg"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Email:</td>
+				<td>
+					<input type="email" name="email" class="email">
+				</td>
+				<td>
+					<span class="email_msg"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Password:</td>
+				<td>
+					<input type="password" name="password" class="password">
+				</td>
+				<td>
+					<span class="pwd_msg"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Confirm Password:</td>
+				<td>
+					<input type="password" name="cpassword" class="cpassword">
+				</td>
+				<td>
+					<span class="cpwd_msg"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Username:</td>
+				<td>
+					<input type="uname" name="uname" class="uname">
+				</td>
+				<td>
+					<span class="uname_msg"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Hobbies:</td>
+				<td>
+					<input type="hobby" name="hobby" class="hobby" maxlength="8" minlength="2">
+				</td>
+				<td>
+					<span class="hobby_msg"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Study Details:</td>
+				<td>
+					<input type="button" name="study" class="study" value="Add">
+				</td>
+				
+				<td>
+					<span class="study_msg"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="hide">standard</td>
+				<td class="hide">Percentage</td>
+			<tr>
+
+			<tr>
+				<td class="std"></td>
+				<td class="per"></td>
+				<td class="hide remove"><button>remove</button></td>
+			</tr>
+
+			<tr>
+				<td>Profile picture</td>
+				<td>
+					<input type="file" name="image" class="image" onchange="readURL(this);"/>
+				</td>
+				<td>
+					<span class="img_msg"></span>
+				</td>
+			</tr>
+		</table>
+		<input type="button" name="submit" class="submit" value="submit">
+		<input type="reset" name="reset" class="reset" value="Reset">
+	</form>
+
+	<table id="customers">
+	  <tr>
+	    <th>Number</th>
+	    <th>Title</th>
+	    <th>Value</th>
+	  </tr>
+	  <tr>
+	    <td>1</td>
+	    <td>Name</td>
+	    <td class="name_data"></td>
+	  </tr>
+	  <tr>
+	    <td>2</td>
+	    <td>Age</td>
+	    <td class="age_data"></td>
+	  </tr>
+	  <tr>
+	    <td>3</td>
+	    <td>Email</td>
+	    <td class="email_data"></td>
+	  </tr>
+	  <tr>
+	    <td>4</td>
+	    <td>User name</td>
+	    <td class="uname_data"></td>
+	  </tr>
+	  <tr>
+	    <td>5</td>
+	    <td>Hobby</td>
+	    <td class="hobby_data"></td>
+	  </tr>
+	  <tr>
+	    <td>6</td>
+	    <td>Image</td>			
+	    <td class=""><img id="blah" src="#" alt="your image" /></td>
+	  </tr>
+	</table>
+</body>
+</html>
